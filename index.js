@@ -2,6 +2,10 @@ const express = require("express");
 const app = express();
 const port = 8000;
 
+app.get("/g",(req,res) => {
+res.send("hello world!")
+})
+
 const array = [1, 2, 3, 4];
 
 // app.get("/movie/popularlanguage=en-US&page=1", (req, res) => {
@@ -18,6 +22,10 @@ app.get("/test", (req, res) => {
   res.status(200).send(array);
 });
 
+app.get("/test", (req,res) =>{
+  const value
+})
+
 app.post("/test", (req, res) => {
   array.push("5");
   res.status(200).send("successfully created");
@@ -30,6 +38,7 @@ app.delete("/test", (req, res) => {
 
 app.post("/init", (req, res) => {
   array.pop();
+  res.status(200).send("successfully removed last element")
 });
 
 app.post("/reset", (req, res) => {
@@ -37,7 +46,7 @@ app.post("/reset", (req, res) => {
   array[1] = 2;
   array[2] = 3;
   array[3] = 4;
-  res.send("successully resetted");
+  res.send("successully reset");
 });
 
 // app.get("/movie/popularlanguage=en-US&page=1", (id, res) => {
@@ -56,3 +65,4 @@ app.post("/reset", (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port${port}`);
 });
+
